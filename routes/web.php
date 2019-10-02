@@ -11,21 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index');
 
-Route::get('gallery', function () {
-  return view('gallery');
-})->name('gallery');
+Route::get('gallery', 'PagesController@gallery')->name('gallery');
 
-Route::get('blog', function () {
-  return view('blog');
-})->name('blog');
+Route::get('blog', 'PagesController@blog')->name('blog');
 
-
-Route::get('aboutus/{name?}', function ($name = null) {
-  $team = ['Kevin', 'Wilman', 'Mario'];
-//  return view('aboutus', ['team' => $team]);
-  return view('aboutus', compact('team'));
-})->name('aboutus');
+Route::get('aboutus/{name?}', 'PagesController@aboutus')->name('aboutus');
